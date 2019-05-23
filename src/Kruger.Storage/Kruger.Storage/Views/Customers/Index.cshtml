@@ -1,0 +1,74 @@
+﻿@model IEnumerable<Kruger.Storage.Models.CustomerIndexViewModel>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Listado de clientes</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.DocumentNumber)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DocumentTypeId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FirstName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.LastName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Address)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Email)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CustomerTypeId)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.DocumentNumber)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DocumentTypeId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FirstName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LastName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Address)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Email)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CustomerTypeId)
+            </td>
+            <td>
+                <a asp-controller="StorageOrders" asp-action="Create" asp-route-customerid="@item.CustomerId">
+                    Ingresar productos
+                </a>
+            </td>
+            <td>
+                <a asp-action="ProductsComingToExpireReport" asp-route-customerid="@item.CustomerId">
+                    Reporte productos a vencer
+                </a>
+            </td>
+        </tr>
+        }
+    </tbody>
+</table>

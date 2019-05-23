@@ -1,0 +1,77 @@
+﻿@model IEnumerable<Kruger.Storage.Data.Access.Entities.StorageOrder>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.OrderQty)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ColumnNumber)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.RowNumber)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EntryDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DepartureDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DiscontinuedDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Product)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Rack)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.OrderQty)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ColumnNumber)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.RowNumber)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EntryDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DepartureDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DiscontinuedDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Product.ProductId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Rack.RackId)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.StorageOrderId">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.StorageOrderId">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.StorageOrderId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

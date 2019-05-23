@@ -1,0 +1,61 @@
+﻿@model IEnumerable<Kruger.Storage.Models.ProductsComingToExpireViewModel>
+
+@{
+    ViewData["Title"] = "Productos a vencer";
+}
+
+<h1>Listado de productos a vencer en 30 días</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.ProductName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.StorageId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.RackName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Row)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Column)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DiscontinuedDate)
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ProductName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.StorageId)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.RackName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Row)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Column)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DiscontinuedDate)
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<div>
+    <a asp-controller="Customers" asp-action="Index">Volver al listado de clientes</a>
+</div>

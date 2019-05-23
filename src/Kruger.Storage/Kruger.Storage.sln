@@ -1,0 +1,43 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.28917.181
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kruger.Storage", "Kruger.Storage\Kruger.Storage.csproj", "{F50F31DA-FB21-43EC-80DA-2004E31A4802}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kruger.Storage.Data.Access", "Kruger.Storage.Data.Access\Kruger.Storage.Data.Access.csproj", "{5FA7DFD5-8D75-48AB-8974-D38875C100AF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kruger.Storage.Data.Model", "Kruger.Storage.Data.Model\Kruger.Storage.Data.Model.csproj", "{90D4814F-B921-464C-A5D3-4D8BF773E375}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kruger.Storage.API", "Kruger.Storage.API\Kruger.Storage.API.csproj", "{4E1559F5-B629-4732-9E72-698AA6A18438}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F50F31DA-FB21-43EC-80DA-2004E31A4802}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F50F31DA-FB21-43EC-80DA-2004E31A4802}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F50F31DA-FB21-43EC-80DA-2004E31A4802}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F50F31DA-FB21-43EC-80DA-2004E31A4802}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5FA7DFD5-8D75-48AB-8974-D38875C100AF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5FA7DFD5-8D75-48AB-8974-D38875C100AF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5FA7DFD5-8D75-48AB-8974-D38875C100AF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5FA7DFD5-8D75-48AB-8974-D38875C100AF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{90D4814F-B921-464C-A5D3-4D8BF773E375}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{90D4814F-B921-464C-A5D3-4D8BF773E375}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{90D4814F-B921-464C-A5D3-4D8BF773E375}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{90D4814F-B921-464C-A5D3-4D8BF773E375}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4E1559F5-B629-4732-9E72-698AA6A18438}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4E1559F5-B629-4732-9E72-698AA6A18438}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4E1559F5-B629-4732-9E72-698AA6A18438}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4E1559F5-B629-4732-9E72-698AA6A18438}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {A05518E0-E442-4007-A81A-66FFD92D1FFC}
+	EndGlobalSection
+EndGlobal

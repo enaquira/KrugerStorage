@@ -1,0 +1,106 @@
+﻿@model Kruger.Storage.Models.StorageOrderCreateViewModel
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Ingreso de producto a la bodega</h1>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="ProductId" class="control-label"></label>
+                <select asp-for="ProductId" class="form-control" asp-items="ViewBag.ProductId"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="StorageId" class="control-label"></label>
+                <select asp-for="StorageId" class="form-control" asp-items="ViewBag.StorageId"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="RackId" class="control-label"></label>
+                <select asp-for="RackId" class="form-control" asp-items="ViewBag.RackId"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="OrderQty" class="control-label"></label>
+                <input asp-for="OrderQty" class="form-control" />
+                <span asp-validation-for="OrderQty" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ColumnNumber" class="control-label"></label>
+                <input asp-for="ColumnNumber" class="form-control" />
+                <span asp-validation-for="ColumnNumber" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="RowNumber" class="control-label"></label>
+                <input asp-for="RowNumber" class="form-control" />
+                <span asp-validation-for="RowNumber" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="EntryDate" class="control-label"></label>
+                <input asp-for="EntryDate" type="date" class="form-control" />
+                <span asp-validation-for="EntryDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DiscontinuedDate" class="control-label"></label>
+                <input asp-for="DiscontinuedDate" type="date" class="form-control" />
+                <span asp-validation-for="DiscontinuedDate" class="text-danger"></span>
+            </div>
+            <input type="hidden" asp-for="CustomerId" />
+            <div class="form-group">
+                <input type="submit" value="Registrar" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-controller="Customers" asp-action="Index">Volver al listado de clientes</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+
+    <script type="text/javascript">
+        //Insert default item "Select" in dropdownlist on load
+        $(document).ready(function () {
+            var items = "<option value='0'>Seleccione</option>";
+            $("#StorageId").html(items);
+            $("#RackId").html(items);
+        });
+
+        //Bind Storage dropdownlist
+        $("#ProductId").change(function () {
+            var item = "<option value='0'>Seleccione</option>";    
+
+            var productId = $("#ProductId").val();
+            var url = "/StorageOrders/GetStoragesByProductId";
+            $("#StorageId").empty();
+            $("#RackId").empty();
+
+            $.getJSON(url, { productId: productId }, function (data) {
+                
+                $.each(data, function (i, storage) {
+                    item += '<option value="' + storage.value + '">' + storage.text + '</option>'
+                });
+                $("#StorageId").html(item);
+            });
+        });
+
+        $("#StorageId").change(function () {
+            var item = "<option value='0'>Seleccione</option>";
+
+            var storageId = $("#StorageId").val();
+            var url = "/StorageOrders/GetRacksByStorageId";
+
+            $.getJSON(url, { storageId: storageId }, function (data) {
+                $("#RackId").empty();
+                $.each(data, function (i, storage) {
+                    item += '<option value="' + storage.value + '">' + storage.text + '</option>'
+                });
+                $("#RackId").html(item);
+            });
+        });
+    </script>
+}
